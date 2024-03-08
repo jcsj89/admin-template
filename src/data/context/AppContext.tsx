@@ -1,7 +1,9 @@
 "use client";
 import { createContext } from "react";
 
-const AppContext = createContext({ nome: "Teste API agora funcionou caceta" });
+const AppContext = createContext({
+    nome: "Teste API agora funcionou caceta, ainda esta",
+});
 
 export function AppProvider(props: any) {
     return (
