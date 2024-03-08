@@ -1,10 +1,10 @@
 import Layout from "@/components/template/Layout";
 
-export default function Home() {
+export default function Ajustes() {
     return (
         <main className="">
-            <Layout titulo="primeira" subtitulo="ola">
-                <h1>Aqui eh a pagina conteudo</h1>
+            <Layout titulo="Ajustes" subtitulo="Pagina Ajustes">
+                <h1>Ajustes</h1>
             </Layout>
         </main>
     );
