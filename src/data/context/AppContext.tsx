@@ -1,14 +1,28 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const AppContext = createContext({
-    nome: "Teste API agora funcionou caceta, ainda esta",
+type Tema = "dark" | "";
+
+interface AppContextProps {
+    tema?: Tema;
+    alternarTema?: () => void;
+}
+
+const AppContext = createContext<AppContextProps>({
+    tema: "",
+    alternarTema: undefined,
 });
 
-export function AppProvider(props: any) {
+export function AppProvider({ children }: { children: React.ReactNode }) {
+    const [tema, setTema] = useState<Tema>("");
+
+    function alternarTema() {
+        setTema(tema === "" ? "dark" : "");
+    }
+
     return (
-        <AppContext.Provider value={{ nome: "Teste Context API" }}>
-            {props.children}
+        <AppContext.Provider value={{ tema, alternarTema }}>
+            {children}
         </AppContext.Provider>
     );
 }
